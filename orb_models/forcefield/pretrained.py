@@ -1,8 +1,14 @@
 from functools import partial
 from typing import cast, overload
 
+import os
+
 import torch
 from cached_path import cached_path
+
+_PRETRAINED_MODELS_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "..", "..", "pretrained-models")
+)
 
 from orb_models.common.atoms.featurization import gaussian_basis_function
 from orb_models.common.models.angular import SphericalHarmonics
@@ -361,7 +367,7 @@ def orb_v3_direct_architecture(
 
 
 def orb_v3_conservative_omol(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3-conservative-omol-20250820.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-conservative-omol.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -417,7 +423,7 @@ def orb_v3_conservative_omol(
 
 
 def orb_v3_direct_omol(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3-direct-omol-20250820.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-direct-omol.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -467,7 +473,7 @@ def orb_v3_direct_omol(
 
 
 def orb_v3_conservative_20_omat(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3/orb-v3-conservative-20-omat-20250404.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-conservative-20-omat.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -513,7 +519,7 @@ def orb_v3_conservative_20_omat(
 
 
 def orb_v3_conservative_inf_omat(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3/orb-v3-conservative-inf-omat-20250404.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-conservative-inf-omat.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -562,7 +568,7 @@ def orb_v3_conservative_inf_omat(
 
 
 def orb_v3_direct_20_omat(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3/orb-v3-direct-20-omat-20250404.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-direct-20-omat.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -602,7 +608,7 @@ def orb_v3_direct_20_omat(
 
 
 def orb_v3_direct_inf_omat(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3/orb-v3-direct-inf-omat-20250404.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-direct-inf-omat.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -645,7 +651,7 @@ def orb_v3_direct_inf_omat(
 
 
 def orb_v3_conservative_20_mpa(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3/orb-v3-conservative-20-mpa-20250404.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-conservative-20-mpa.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -691,7 +697,7 @@ def orb_v3_conservative_20_mpa(
 
 
 def orb_v3_conservative_inf_mpa(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3/orb-v3-conservative-inf-mpa-20250404.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-conservative-inf-mpa.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -740,7 +746,7 @@ def orb_v3_conservative_inf_mpa(
 
 
 def orb_v3_direct_20_mpa(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3/orb-v3-direct-20-mpa-20250404.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-direct-20-mpa.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
@@ -780,7 +786,7 @@ def orb_v3_direct_20_mpa(
 
 
 def orb_v3_direct_inf_mpa(
-    weights_path: str = "https://orbitalmaterials-public-models.s3.us-west-1.amazonaws.com/forcefields/orb-v3/orb-v3-direct-inf-mpa-20250404.ckpt",  # noqa: E501
+    weights_path: str = os.path.join(_PRETRAINED_MODELS_DIR, "orb-v3-direct-inf-mpa.ckpt"),
     device: torch.device | str | None = None,
     precision: str = "float32-high",
     compile: bool | None = None,
